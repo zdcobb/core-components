@@ -1,0 +1,16 @@
+.counter {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.counter__button-row {
+	display: flex;
+	gap: 10px;
+}
+
+.counter__button {
+	min-width: 100px;
+}

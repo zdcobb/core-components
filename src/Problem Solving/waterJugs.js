@@ -17,7 +17,7 @@ Approach #1 (this is solution I came up with in the interview):
 7. Fill the small jug                                               --  Small: 3    Big: 1
 8: Transfer the small jug -> big jug                                --  Small: 0    Big: 4
 
-Approach #2 (This was the solution from the movie apparently and can be done with 2 fewer steps):
+Approach #2 (uses the big jug instead of the small one and can be done with 2 fewer steps):
 1. Fill the big jug                         -- Small: 0     Big: 5
 2. Transfer the big jug -> small jug        -- Small: 3     Big: 2
 3. Empty the small jug                      -- Small: 0     Big: 2
@@ -83,15 +83,12 @@ Approach #1 (using the small jug):
 18. Transfer the small -> big           -- Small: 0     Big: 9
 19. Fill the small jug                  -- Small: 7     Big: 9
 20. Transfer the small -> big           -- Small: 5     Big: 11
-21. Empty the big jug                   -- Small: 5     Big: 0
-22. Transfer the small -> big           -- Small: 0     Big: 5
-23. Fill the small jug                  -- Small: 5     Big: 5
-24. Transfer the small -> big           -- Small: 0     Big: 10
+... 
 
-... this goes on for a while, but you never actually get to a solution. 
+this goes on for a while, but I don't think you never actually get to a solution. 
 let's look at approach #2 again...
 
-Approach #1 (using the big jug):
+Approach #2 (using the big jug):
 1. Fill the big jug                 -- Small: 0     Big: 11
 2. Transfer big jug -> small jug    -- Small: 7     Big: 4
 
@@ -109,7 +106,7 @@ Approach #1:
     - small jug volume == 5
     --- small's volume - big's available capacity === target  -->  (i.e. 5 - 2 == 3 )
 
-    If we can apply this check to both approaches, maybe it can help.
+    If we can apply this check to both approaches, maybe it can help save some steps.
 
 Comparison #2, pretty much the reverse of the other but this one can be solved after one step, filling the jug:
     - Available capacity of the small jug == 7
@@ -121,7 +118,7 @@ Comparison #2, pretty much the reverse of the other but this one can be solved a
 
 */
 
-function findSolution(smallCap, bigCap, target) {
+function solution2(smallCap, bigCap, target) {
 	// state variables
 	let small = 0;
 	let big = 0;
@@ -183,5 +180,5 @@ function findSolution(smallCap, bigCap, target) {
 	return steps;
 }
 
-let solutionCount = findSolution(7, 11, 3);
-console.log("Solution count: ", solutionCount);
+let solutionCount = solution2(7, 11, 3);
+console.log("Solution2 count: ", solutionCount);
